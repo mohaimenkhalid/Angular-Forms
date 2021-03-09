@@ -10,7 +10,8 @@ import { EnrollmentService } from './enrollment.service';
 export class AppComponent {
   topics = ['Angular', 'React', 'Vue'];
   isSubmitted = false;
-  userModel = new User('', 'mohaimen@gmail.com', 45678, '', 'morning', true);
+  errorMessage = '';
+  userModel = new User('mohaimen', 'mohaimen@gmail.com', 1234567890, '', 'morning', true);
   constructor(private _ENROLLMENT: EnrollmentService) { }
 
   // tslint:disable-next-line:typedef
@@ -19,7 +20,7 @@ export class AppComponent {
     this._ENROLLMENT.enroll(this.userModel)
       .subscribe(
           data => console.log('success', data),
-          error => console.log('error', error)
+          error => this.errorMessage = error.statusText
       );
   }
 

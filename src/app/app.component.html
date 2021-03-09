@@ -72,8 +72,11 @@
           <button [disabled]="userForm.form.invalid" class="btn btn-primary">Submit Form</button>
         </div>
       </form>
-      <div *ngIf="isSubmitted">
+      <div *ngIf="isSubmitted && !errorMessage">
         Form Submitted!
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
       </div>
     </div>
   </div>
