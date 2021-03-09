@@ -34,10 +34,12 @@
         </div>
         <div class="form-group">
           <label>Topics</label>
-          <select class="custom-select" name="topic"  [(ngModel)]="userModel.topic">
+          <select class="custom-select" name="topic"  [(ngModel)]="userModel.topic" required #topic="ngModel" [class.is-invalid] = "topic.invalid && topic.touched">
               <option selected value="">I am interested in</option>
             <option *ngFor="let topic of topics" value="{{topic}}">{{ topic }}</option>
           </select>
+          <small class="text-danger"
+                 [class.d-none] = "topic.valid || topic.untouched">Please choose a topic.</small>
         </div>
         <div class="form-group">
           <label>Time Preference</label>
