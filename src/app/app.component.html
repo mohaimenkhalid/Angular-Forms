@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3 mt-4">
       <h1 class="text-center">Enrollment Form</h1>
-      <form #userForm="ngForm">
+      <form #userForm="ngForm" *ngIf="!isSubmitted" (ngSubmit)="onSubmit()" novalidate>
         {{ userForm.value | json}}
         <hr>
         {{ userModel | json}}
@@ -72,6 +72,9 @@
           <button [disabled]="userForm.form.invalid" class="btn btn-primary">Submit Form</button>
         </div>
       </form>
+      <div *ngIf="isSubmitted">
+        Form Submitted!
+      </div>
     </div>
   </div>
 </div>
