@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { User } from './user';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,6 @@ import {NgForm} from '@angular/forms';
 })
 export class AppComponent {
   topics = ["Angular", "React", "Vue"];
+
+  userModel = new User('mohaimen', 'mohaimen@gmail.com', 3456789, '', 'morning', true);
 }
